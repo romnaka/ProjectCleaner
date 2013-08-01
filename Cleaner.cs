@@ -6,6 +6,7 @@ namespace ProjectCleaner
     {
         private const long MaxFileSize = 20971520;
 
+        //Method to clean project
         public static void Clean(string folder)
         {
             string[] dirs = Directory.GetDirectories(folder, "*", SearchOption.AllDirectories);

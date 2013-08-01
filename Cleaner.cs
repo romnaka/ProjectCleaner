@@ -14,9 +14,10 @@ namespace ProjectCleaner
 
             foreach (string nestedFolder in dirs)
             {
-                if (nestedFolder.ToLower().Substring(nestedFolder.LastIndexOf("\\", System.StringComparison.Ordinal) + 1) == "drop" || 
-                    nestedFolder.ToLower().Substring(nestedFolder.LastIndexOf("\\", System.StringComparison.Ordinal) + 1) == "bin" || 
-                    nestedFolder.ToLower().Substring(nestedFolder.LastIndexOf("\\", System.StringComparison.Ordinal) + 1) == "obj")
+                string folderName = nestedFolder.ToLower().Substring(nestedFolder.LastIndexOf("\\", System.StringComparison.Ordinal) + 1); 
+                if (folderName == "drop" || 
+                    folderName == "bin" || 
+                    folderName== "obj")
                 {
                     Directory.Delete(nestedFolder, true);
                 }

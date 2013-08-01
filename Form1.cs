@@ -31,7 +31,7 @@ namespace ProjectCleaner
         {
             if (!Directory.Exists(ChooseProjectFolderTB.Text))
             {
-                MessageBox.Show("Выберите существующую директорию!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Выберите существующую папку!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

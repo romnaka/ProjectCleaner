@@ -1,0 +1,54 @@
+﻿using System;
+using System.IO;
+using System.Windows.Forms;
+
+namespace ProjectCleaner
+{
+    public partial class ProjectCleanerForm : Form
+    {
+        public ProjectCleanerForm()
+        {
+            InitializeComponent();
+        }
+
+        private void EnableComponents(bool isEnabled)
+        {
+            ChooseProjectFolderButton.Enabled = isEnabled;
+            ChooseProjectFolderTB.Enabled = isEnabled;
+            CleanProjectButton.Enabled = isEnabled;
+        }
+
+        private void ChooseProjectFolderButton_Click(object sender, EventArgs e)
+        {
+            if (ChooseProjectFolderFBD.ShowDialog() == DialogResult.OK)
+                ChooseProjectFolderTB.Text = ChooseProjectFolderFBD.SelectedPath;
+        }
+
+        private void CleanProjectButton_Click(object sender, EventArgs e)
+        {
+            if (!Directory.Exists(ChooseProjectFolderTB.Text))
+            {
+                MessageBox.Show("Выберите существующую директорию!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                EnableComponents(false);
+                try
+                {
+                    Cleaner.Clean(ChooseProjectFolderTB.Text);
+                    MessageBox.Show("Почищено!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (IOException)
+                {
+                    MessageBox.Show("Закройте приложения, которые используют файлы проекта!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                EnableComponents(true);
+            }
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}

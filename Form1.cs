@@ -4,6 +4,9 @@ using System.Windows.Forms;
 
 namespace ProjectCleaner
 {
+    /// <summary>
+    /// Form class
+    /// </summary>
     public partial class ProjectCleanerForm : Form
     {
         public ProjectCleanerForm()

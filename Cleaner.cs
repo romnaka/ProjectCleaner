@@ -10,22 +10,18 @@ namespace ProjectCleaner
         public static void Clean(string folder)
         {
             string[] dirs = Directory.GetDirectories(folder, "*", SearchOption.AllDirectories);
-            string[] files = Directory.GetFiles(folder, "*.*", SearchOption.AllDirectories);
-
             foreach (string nestedFolder in dirs)
             {
                 string folderName = nestedFolder.ToLower().Substring(nestedFolder.LastIndexOf("\\", System.StringComparison.Ordinal) + 1); 
                 if (folderName == "drop" || 
                     folderName == "bin" || 
                     folderName== "obj")
-                if (nestedFolder.ToLower().Substring(nestedFolder.LastIndexOf("\\", System.StringComparison.Ordinal) + 1) == "drop" || 
-                    nestedFolder.ToLower().Substring(nestedFolder.LastIndexOf("\\", System.StringComparison.Ordinal) + 1) == "bin" || 
-                    nestedFolder.ToLower().Substring(nestedFolder.LastIndexOf("\\", System.StringComparison.Ordinal) + 1) == "obj")
                 {
                     Directory.Delete(nestedFolder, true);
                 }
-            }
-     
+            } 
+            
+            string[] files = Directory.GetFiles(folder, "*.*", SearchOption.AllDirectories);
             foreach (var file in files)
             {
                 string ext = Path.GetExtension(file);

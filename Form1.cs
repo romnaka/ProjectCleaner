@@ -41,7 +41,7 @@ namespace ProjectCleaner
                     Cleaner.Clean(ChooseProjectFolderTB.Text);
                     MessageBox.Show("Почищено!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (IOException)
+                catch (UnauthorizedAccessException)
                 {
                     MessageBox.Show("Закройте приложения, которые используют файлы проекта!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

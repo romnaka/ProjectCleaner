@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectCleanerForm));
             this.ChooseProjectFolderTB = new System.Windows.Forms.TextBox();
             this.ChooseProjectFolderButton = new System.Windows.Forms.Button();
             this.ChooseProjectFoldetLabel = new System.Windows.Forms.Label();
@@ -93,6 +94,7 @@
             this.Controls.Add(this.ChooseProjectFolderButton);
             this.Controls.Add(this.ChooseProjectFolderTB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProjectCleanerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project Cleaner";

@@ -2,7 +2,7 @@
 
 namespace ProjectCleaner
 {
-    internal class Cleaner
+    internal static class Cleaner
     {
         private const long MaxFileSize = 20971520;
 
@@ -26,7 +26,7 @@ namespace ProjectCleaner
             {
                 string ext = Path.GetExtension(file);
                 long size = new FileInfo(file).Length;
-                if (ext.Equals(".suo") || ext.Equals(".user") || ext.Equals(".pdb") || size > MaxFileSize)
+                if (ext != null && (ext.Equals(".suo") || ext.Equals(".user") || ext.Equals(".pdb") || size > MaxFileSize))
                     File.Delete(file);
             }
            
